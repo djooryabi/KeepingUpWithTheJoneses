@@ -8,6 +8,7 @@ public class InputManager : MonoBehaviour {
     public float movementSpeed;
     public float xErrorThresh, yErrorThresh;
     public float jumpForce;
+
     private Rigidbody rb;
     private Player player;
     
