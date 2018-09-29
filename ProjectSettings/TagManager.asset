@@ -6,6 +6,8 @@ TagManager:
   tags:
   - SF_Door
   - Floor
+  - Tunnel Entrance
+  - AdultBlock
   layers:
   - Default
   - TransparentFX
