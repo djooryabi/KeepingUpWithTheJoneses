@@ -6,7 +6,6 @@ public class Character : MonoBehaviour {
 
 	public float speed = 10.0f;
     public float rotationSpeed = 100.0f;
-	public Transform target;
 
 	// Use this for initialization
 	void Start () {
@@ -32,8 +31,6 @@ public class Character : MonoBehaviour {
 
         // Rotate around our y-axis
         //transform.Rotate(0, rotation, 0);
-		Vector3 relativePos = target.position - transform.position;
-        Quaternion rotation = Quaternion.LookRotation(relativePos);
-        transform.rotation = rotation;
+
 	}
 }
