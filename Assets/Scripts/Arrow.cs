@@ -20,7 +20,7 @@ public class Arrow : MonoBehaviour {
 
 	void OnCollisionEnter (Collision col){
 
-		if(col.gameObject.name == "Character"){
+		if(col.gameObject.tag == "Player"){
 			Destroy(col.gameObject);
 		}
 

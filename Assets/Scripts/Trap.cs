@@ -2,7 +2,9 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class Fire : MonoBehaviour {
+public class Trap : MonoBehaviour {
+
+	public bool isActive;
 
 	// Use this for initialization
 	void Start () {
@@ -12,12 +14,5 @@ public class Fire : MonoBehaviour {
 	// Update is called once per frame
 	void Update () {
 		
-	}
-
-	void OnTriggerEnter (Collider col)
-	{
-		if(col.gameObject.tag == "Player"){
-			Destroy(col.gameObject);
-		}
 	}
 }
