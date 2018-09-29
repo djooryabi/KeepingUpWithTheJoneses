@@ -5,9 +5,11 @@ using UnityEngine;
 public class Player : MonoBehaviour {
 
     public Transform respawnPoint;
+    public PlayerCamera cam;
     private InputManager inputManager;
     private Rigidbody rb;
     private float distanceToGround;
+    public bool inTunnel;
     
     void Awake() {
         inputManager = GetComponent<InputManager>();
@@ -27,6 +29,30 @@ public class Player : MonoBehaviour {
     
     void Update () {
         //Debug.Log(IsGrounded());
+    }
+
+    //private void OnTriggerEnter(Collider other)
+    //{
+    //    if (other.gameObject.tag == "Tunnel Entrance")  {
+        
+    //        Debug.Log("Entered tunnel");
+    //        cam.ZoomIn();
+    //    }
+    //}
+
+    private void OnTriggerExit(Collider other)
+    {
+        if (other.gameObject.tag == "Tunnel Entrance")  {
+
+            if (inTunnel == true)
+            {
+                inTunnel = false;
+                cam.ZoomOut();
+            } else {
+                inTunnel = true;
+                cam.ZoomIn();
+            }
+        }
     }
 
     //private void OnCollisionEnter(Collision collision)
