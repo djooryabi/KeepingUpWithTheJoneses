@@ -4,9 +4,13 @@ using UnityEngine;
 
 public class Arrow : MonoBehaviour {
 
+	public Rigidbody rb;
+	public float velX = 1;
+
 	// Use this for initialization
 	void Start () {
-		
+		rb = GetComponent<Rigidbody>();
+		rb.velocity = transform.right*velX;
 	}
 	
 	// Update is called once per frame
@@ -14,8 +18,12 @@ public class Arrow : MonoBehaviour {
 		
 	}
 
-	OnEnterCollision(Collision col){
+	void OnCollisionEnter (Collision col){
 
-		Destroy();
+		if(col.gameObject.name == "Character"){
+			Destroy(col.gameObject);
+		}
+
+		Destroy(gameObject);
 	}
 }
