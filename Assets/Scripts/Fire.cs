@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class Kill : MonoBehaviour {
+public class Fire : MonoBehaviour {
 
 	// Use this for initialization
 	void Start () {
@@ -14,7 +14,7 @@ public class Kill : MonoBehaviour {
 		
 	}
 
-	void OnCollisionEnter (Collision col)
+	void OnTriggerEnter (Collider col)
 	{
 		if(col.gameObject.name == "Character"){
 			Destroy(col.gameObject);
