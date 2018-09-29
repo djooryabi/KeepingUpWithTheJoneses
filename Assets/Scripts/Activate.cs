@@ -22,17 +22,17 @@ public class Activate : MonoBehaviour {
 		Debug.Log("Activating");
 		isActive = !isActive;
 		Activating = true;
-		Invoke("StopActiavtion",1f);
+		//Invoke("StopActivation",1f);
 	}
 	
 	public void Deactivation(){
 		Debug.Log("Deactivating");
 		isActive = !isActive;
 		Deactivating = true;
-		Invoke("StopDeactivation",1f);
+		//Invoke("StopDeactivation",1f);
 	}
 	
-	void StopActiavtion(){
+	void StopActivation(){
 		Activating = false;
 	}
 

@@ -23,8 +23,9 @@ GameObject:
   - component: {fileID: 23731119366130760}
   - component: {fileID: 65587863783634960}
   - component: {fileID: 114528898534430428}
+  - component: {fileID: 114708633708299986}
   m_Layer: 0
-  m_Name: Spikes
+  m_Name: TrapSpikes
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -37,7 +38,7 @@ Transform:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1699174893557600}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -7.082, y: -2.268, z: 0.24}
+  m_LocalPosition: {x: -1.2978956, y: -1.37, z: -0.968}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
@@ -108,3 +109,19 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: a053cd393a4bc4844b98d9b89fd2c48b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+--- !u!114 &114708633708299986
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1699174893557600}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 62a16dee036f9df4b8a15a36fc90aa4c, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  isActive: 0
+  Activating: 0
+  Deactivating: 0
+  velY: 1
+  distance: 1

@@ -105,10 +105,11 @@ MonoBehaviour:
   m_GameObject: {fileID: 1297817198582856}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 6a06894b55f605c42a44f9aba610b29d, type: 3}
+  m_Script: {fileID: 11500000, guid: c8ad6c70ba9544581bec3f6ced2ed034, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   isActive: 0
   Activating: 0
   Deactivating: 0
-  velY: 2
+  velY: 1
+  distance: 5
