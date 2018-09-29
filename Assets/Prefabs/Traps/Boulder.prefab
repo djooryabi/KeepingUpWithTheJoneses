@@ -23,7 +23,7 @@ GameObject:
   - component: {fileID: 23177702845665870}
   - component: {fileID: 135905218668204508}
   m_Layer: 0
-  m_Name: New Prefab
+  m_Name: Boulder
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
