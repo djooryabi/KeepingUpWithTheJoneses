@@ -8,6 +8,7 @@ TagManager:
   - Floor
   - Tunnel Entrance
   - AdultBlock
+  - Fire
   layers:
   - Default
   - TransparentFX
@@ -18,8 +19,8 @@ TagManager:
   - 
   - 
   - PostProcessing
-  - 
-  - 
+  - AdultPlayer
+  - ChildPlayer
   - 
   - 
   - 

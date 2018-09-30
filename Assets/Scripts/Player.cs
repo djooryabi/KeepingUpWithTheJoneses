@@ -23,6 +23,12 @@ public class Player : MonoBehaviour {
         rb.velocity = Vector3.zero;
         rb.angularVelocity = Vector3.zero;
         rb.position = respawnPoint.position;
+        
+        if (this.GetType() == typeof(AdultPlayer)) {
+            FindObjectOfType<ScoreManager>().AdultDied();
+        } else {
+            FindObjectOfType<ScoreManager>().ChildDied();
+        }
     }
     
     public bool IsGrounded() {
@@ -49,5 +55,20 @@ public class Player : MonoBehaviour {
 
         }
     }
+
+    private void OnTriggerEnter(Collider other)
+    {
+        if (other.GetComponent<DeathFloor>() != null) {
+            Respawn();
+        }
+    }
+
+    //private void OnParticleCollision(GameObject other)
+    //{
+    //    Debug.Log("Particle Collision");
+    //    if (other.GetComponentInParent<FireTile>() != null) {
+    //        Respawn();
+    //    }
+    //}
 
 }

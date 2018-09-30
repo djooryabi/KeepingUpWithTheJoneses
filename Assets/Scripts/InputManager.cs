@@ -20,14 +20,7 @@ public class InputManager : MonoBehaviour {
         player = GetComponent<Player>();
         anim = GetComponent<Animator>();
     }
-	// Use this for initialization
-	void Start () {
-		
-	}
 
-    private bool walkTriggered;
-    private bool stopWalkTriggered;
-    
     private enum State {
         Idle, 
         Walking,
@@ -59,6 +52,9 @@ public class InputManager : MonoBehaviour {
         } else if (player.GetType() == typeof(ChildPlayer)) {
             x = Input.GetAxis("Player2Horizontal");
             y = Input.GetAxis("Player2Vertical");
+            
+            rotX = Input.GetAxis("Player2CameraHorizontal");
+            rotY = -Input.GetAxis("Player2CameraVertical"); // this one is inverted
 
             if (Input.GetButtonUp("Player2Jump") == true && onGround == true) {
                 Debug.Log("Child player jumping");
