@@ -23,6 +23,7 @@ public class Switch : MonoBehaviour {
 		if(col.gameObject.tag == "Player"){
 			isSwitched = true;
 			GetComponent<Renderer>().material.SetColor("_Color",colorOn);
+			GetComponent<AudioSource>().Play();
 			foreach(GameObject prefab in prefabs){
 				Debug.Log(prefab.name);
 				prefab.GetComponent<Activate>().Activation();

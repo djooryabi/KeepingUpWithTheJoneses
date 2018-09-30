@@ -26,6 +26,7 @@ public class SwitchEnd : MonoBehaviour {
 				isSwitched = true;
 				canDeactivate = false;
 				GetComponent<Renderer>().material.SetColor("_Color",Color.green);
+				GetComponent<AudioSource>().Play();
 				foreach(GameObject prefab in prefabs){
 					Debug.Log(prefab.name);
 					prefab.GetComponent<Activate>().Activation();

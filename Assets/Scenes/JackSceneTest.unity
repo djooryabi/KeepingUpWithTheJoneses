@@ -291,6 +291,11 @@ Prefab:
       propertyPath: m_RootOrder
       value: 3
       objectReference: {fileID: 0}
+    - target: {fileID: 82540003595922142, guid: 1414eedb0e4745a48848781c18088ee8,
+        type: 2}
+      propertyPath: m_PlayOnAwake
+      value: 0
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 1414eedb0e4745a48848781c18088ee8, type: 2}
   m_IsPrefabAsset: 0
@@ -432,7 +437,7 @@ Prefab:
     m_Modifications:
     - target: {fileID: 4588264049041176, guid: 867b0b2c44769f34f9caf3d4a3809905, type: 2}
       propertyPath: m_LocalPosition.x
-      value: 3.24
+      value: 4.78
       objectReference: {fileID: 0}
     - target: {fileID: 4588264049041176, guid: 867b0b2c44769f34f9caf3d4a3809905, type: 2}
       propertyPath: m_LocalPosition.y

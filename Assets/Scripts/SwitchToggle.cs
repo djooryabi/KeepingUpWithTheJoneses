@@ -20,6 +20,7 @@ public class SwitchToggle : MonoBehaviour {
 	void OnTriggerEnter(Collider col){
 		if(col.gameObject.tag == "Player"){
 			toggle = !toggle;
+			GetComponent<AudioSource>().Play();
 			if(toggle){
 				GetComponent<Renderer>().material.SetColor("_Color",Color.cyan);
 			}
