@@ -7,6 +7,8 @@ public class Switch : MonoBehaviour {
 	public bool isSwitched = false;
 	public bool canDeactivate = false;
 	public GameObject[] prefabs;
+
+	public Color colorOn = Color.red;
 	// Use this for initialization
 	void Start () {
 		
@@ -20,7 +22,7 @@ public class Switch : MonoBehaviour {
 	void OnTriggerEnter(Collider col){
 		if(col.gameObject.tag == "Player"){
 			isSwitched = true;
-			GetComponent<Renderer>().material.SetColor("_Color",Color.cyan);
+			GetComponent<Renderer>().material.SetColor("_Color",colorOn);
 			foreach(GameObject prefab in prefabs){
 				Debug.Log(prefab.name);
 				prefab.GetComponent<Activate>().Activation();
