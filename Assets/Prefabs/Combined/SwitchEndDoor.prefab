@@ -43,7 +43,7 @@ GameObject:
   - component: {fileID: 65964547175448042}
   - component: {fileID: 114716263408789570}
   m_Layer: 0
-  m_Name: SwitchEnd
+  m_Name: SwitchEndDoor
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -56,7 +56,7 @@ Transform:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1429867856448370}
   m_LocalRotation: {x: -0, y: 0.73287725, z: -0, w: 0.680361}
-  m_LocalPosition: {x: 1.0164438, y: 1.2980068, z: -0.013686451}
+  m_LocalPosition: {x: 1.0164438, y: 0.51, z: -0.013686451}
   m_LocalScale: {x: 3.2740788, y: 2.2965, z: 0.17094049}
   m_Children: []
   m_Father: {fileID: 4750669558589380}
@@ -69,7 +69,7 @@ Transform:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1482025751130534}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 8.06, y: -0.96, z: -0.94}
+  m_LocalPosition: {x: 8.170804, y: -0.31024313, z: -0.92014647}
   m_LocalScale: {x: 2.2136, y: 1, z: 2.9226}
   m_Children:
   - {fileID: 4544173571097460}

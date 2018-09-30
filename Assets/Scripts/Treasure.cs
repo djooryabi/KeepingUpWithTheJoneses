@@ -5,6 +5,8 @@ using UnityEngine.SceneManagement;
 
 public class Treasure : MonoBehaviour {
 
+	public string LoadSceneName = "JackSceneTest";
+
 	// Use this for initialization
 	void Start () {
 		
@@ -18,7 +20,12 @@ public class Treasure : MonoBehaviour {
 	void OnTriggerEnter (Collider col){
 		if(col.gameObject.tag == "Player"){
 			Debug.Log("Treasure Acquired");
-			SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex);
+			GetComponent<MeshRenderer>().enabled = false;
+			Invoke("LoadNextScene",2f);
 		}
+	}
+
+	void LoadNextScene(){
+		SceneManager.LoadScene("Level1");
 	}
 }

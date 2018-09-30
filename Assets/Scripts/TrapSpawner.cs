@@ -6,6 +6,7 @@ public class TrapSpawner : Activate {
 
 	public GameObject prefab;
 	public bool Repeats = false;
+	public float repeateRate=1f;
 
 	// Use this for initialization
 	void Start () {
@@ -17,7 +18,7 @@ public class TrapSpawner : Activate {
 		if(Activating){
 			Debug.Log("Fire Arrows");
 			if(Repeats){
-				InvokeRepeating("FireProjectile",0f,1f);
+				InvokeRepeating("FireProjectile",0f,repeateRate);
 			}
 			else{
 				Invoke("FireProjectile",0f);
