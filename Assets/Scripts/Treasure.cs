@@ -21,6 +21,7 @@ public class Treasure : MonoBehaviour {
 		if(col.gameObject.tag == "Player"){
 			Debug.Log("Treasure Acquired");
 			GetComponent<MeshRenderer>().enabled = false;
+			GetComponent<AudioSource>().Play();
 			Invoke("LoadNextScene",2f);
 		}
 	}

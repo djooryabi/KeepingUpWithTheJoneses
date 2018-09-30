@@ -35,6 +35,7 @@ public class Switch : MonoBehaviour {
 		if(canDeactivate){
 			isSwitched = false;
 			GetComponent<Renderer>().material.SetColor("_Color",Color.white);
+			GetComponent<AudioSource>().Stop();
 			foreach(GameObject prefab in prefabs){
 				prefab.GetComponent<Activate>().Deactivation();
 			}

@@ -20,11 +20,14 @@ public class SwitchToggle : MonoBehaviour {
 	void OnTriggerEnter(Collider col){
 		if(col.gameObject.tag == "Player"){
 			toggle = !toggle;
-			GetComponent<AudioSource>().Play();
 			if(toggle){
 				GetComponent<Renderer>().material.SetColor("_Color",Color.cyan);
+				GetComponent<AudioSource>().Play();
 			}
-			else{GetComponent<Renderer>().material.SetColor("_Color",Color.white);}
+			else{
+				GetComponent<Renderer>().material.SetColor("_Color",Color.white);
+				GetComponent<AudioSource>().Stop();
+			}
 			foreach(GameObject prefab in prefabs){
 				Debug.Log(prefab.name);
 				if(toggle){
