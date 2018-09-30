@@ -21,64 +21,78 @@ public class InputManager : MonoBehaviour {
         anim = GetComponent<Animator>();
     }
 
-    private enum State {
+    public enum State {
         Idle, 
         Walking,
         Jumping
     }
 
-    private State state;
+    public State state;
     
 	// Update is called once per frame
 	void Update () {
-        
-        if (player.GetType() == typeof(AdultPlayer)) {
-            x = Input.GetAxis("Player1Horizontal");
-            y = Input.GetAxis("Player1Vertical");
 
-            rotX = Input.GetAxis("Player1CameraHorizontal");
-            rotY = -Input.GetAxis("Player1CameraVertical"); // this one is inverted
+        if (player.respawning == false)
+        {
 
-            //Debug.Log("rotX = " + rotX + " rotY = " + rotY);
-            //Debug.Log("IsGrounded = " + player.IsGrounded());
+            if (player.GetType() == typeof(AdultPlayer))
+            {
+                x = Input.GetAxis("Player1Horizontal");
+                y = Input.GetAxis("Player1Vertical");
 
-            if (Input.GetButtonUp("Player1Jump") == true && onGround == true) {
-                Debug.Log("Adult player jumping");
-                onGround = false;
-                state = State.Jumping;
-                Jump();
-                anim.SetTrigger("Jump");
-            }   
-        } else if (player.GetType() == typeof(ChildPlayer)) {
-            x = Input.GetAxis("Player2Horizontal");
-            y = Input.GetAxis("Player2Vertical");
-            
-            rotX = Input.GetAxis("Player2CameraHorizontal");
-            rotY = -Input.GetAxis("Player2CameraVertical"); // this one is inverted
+                rotX = Input.GetAxis("Player1CameraHorizontal");
+                rotY = -Input.GetAxis("Player1CameraVertical"); // this one is inverted
 
-            if (Input.GetButtonUp("Player2Jump") == true && onGround == true) {
-                Debug.Log("Child player jumping");
-                onGround = false;
-                state = State.Jumping;
-                Jump();
-                anim.SetTrigger("Jump");
+                //Debug.Log("rotX = " + rotX + " rotY = " + rotY);
+                //Debug.Log("IsGrounded = " + player.IsGrounded());
+
+                if (Input.GetButtonUp("Player1Jump") == true && onGround == true)
+                {
+                    Debug.Log("Adult player jumping");
+                    onGround = false;
+                    state = State.Jumping;
+                    Jump();
+                    anim.SetTrigger("Jump");
+                }
             }
-        }
-        
-        if (Mathf.Abs(x) < xErrorThresh) {
-            x = 0f;
-        }
-        
-        if (Mathf.Abs(y) < yErrorThresh) {
-            y = 0f;
-        }
-        
-        if (onGround == true && (Mathf.Abs(y) > 0f) && anim.GetCurrentAnimatorStateInfo(0).IsName("Walking") == false && state != State.Walking) {
-            state = State.Walking;
-            StartWalking();
-        } else if (Mathf.Abs(y) <= 0f && anim.GetCurrentAnimatorStateInfo(0).IsName("Walking") == true && state == State.Walking) {
-            state = State.Idle;
-            StopWalking();
+            else if (player.GetType() == typeof(ChildPlayer))
+            {
+                x = Input.GetAxis("Player2Horizontal");
+                y = Input.GetAxis("Player2Vertical");
+
+                rotX = Input.GetAxis("Player2CameraHorizontal");
+                rotY = -Input.GetAxis("Player2CameraVertical"); // this one is inverted
+
+                if (Input.GetButtonUp("Player2Jump") == true && onGround == true)
+                {
+                    Debug.Log("Child player jumping");
+                    onGround = false;
+                    state = State.Jumping;
+                    Jump();
+                    anim.SetTrigger("Jump");
+                }
+            }
+
+            if (Mathf.Abs(x) < xErrorThresh)
+            {
+                x = 0f;
+            }
+
+            if (Mathf.Abs(y) < yErrorThresh)
+            {
+                y = 0f;
+            }
+
+            if (onGround == true && (Mathf.Abs(y) > 0f) && anim.GetCurrentAnimatorStateInfo(0).IsName("Walking") == false && state != State.Walking)
+            {
+                state = State.Walking;
+                StartWalking();
+            }
+            else if (Mathf.Abs(y) <= 0f && anim.GetCurrentAnimatorStateInfo(0).IsName("Walking") == true && state == State.Walking)
+            {
+                state = State.Idle;
+                StopWalking();
+            }
         }
 
 	}
@@ -114,16 +128,18 @@ public class InputManager : MonoBehaviour {
 
     private void FixedUpdate()
     {
+        if (player.respawning == false)
+        {
+            rb.MovePosition(rb.position + transform.forward * y * Time.deltaTime * movementSpeed);
+            rb.MovePosition(rb.position + transform.right * x * Time.deltaTime * movementSpeed);
 
-        rb.MovePosition(rb.position + transform.forward * y * Time.deltaTime * movementSpeed);
-        rb.MovePosition(rb.position + transform.right * x * Time.deltaTime * movementSpeed);
-        
-        
 
-        var turnRatio = rotX / 1f * turnSpeed;
-        
 
-        var deltaRotation = Quaternion.Euler(new Vector3(0f, turnRatio, 0f) * Time.deltaTime);
-        rb.MoveRotation(rb.rotation * deltaRotation);
+            var turnRatio = rotX / 1f * turnSpeed;
+
+
+            var deltaRotation = Quaternion.Euler(new Vector3(0f, turnRatio, 0f) * Time.deltaTime);
+            rb.MoveRotation(rb.rotation * deltaRotation);
+        }
     }
 }

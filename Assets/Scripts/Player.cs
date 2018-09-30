@@ -11,6 +11,7 @@ public class Player : MonoBehaviour {
     public bool inTunnel;
     private Animator anim;
     public float gravityModifier;
+    public bool respawning;
     
     void Awake() {
         inputManager = GetComponent<InputManager>();
@@ -20,8 +21,15 @@ public class Player : MonoBehaviour {
     }
 
     public void Respawn() {
+        respawning = true;
         rb.velocity = Vector3.zero;
         rb.angularVelocity = Vector3.zero;
+        //rb.useGravity = false;
+        inputManager.state = InputManager.State.Idle;
+        anim.SetTrigger("Die");
+    }
+    
+    public void RespawnHelper() {
         rb.position = respawnPoint.position;
         
         if (this.GetType() == typeof(AdultPlayer)) {
@@ -29,6 +37,9 @@ public class Player : MonoBehaviour {
         } else {
             FindObjectOfType<ScoreManager>().ChildDied();
         }
+
+        respawning = false;
+        //rb.useGravity = true;
     }
     
     public bool IsGrounded() {
@@ -58,7 +69,7 @@ public class Player : MonoBehaviour {
 
     private void OnTriggerEnter(Collider other)
     {
-        if (other.GetComponent<DeathFloor>() != null) {
+        if (other.GetComponent<DeathFloor>() != null && respawning == false) {
             Respawn();
         }
     }

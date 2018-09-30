@@ -44,7 +44,7 @@ public class FireTile : MonoBehaviour {
     
     private void OnTriggerEnter(Collider other)
     {
-        if (other.GetComponent<Player>() != null) {
+        if (other.GetComponent<Player>() != null && other.GetComponent<Player>().respawning == false) {
             other.GetComponent<Player>().Respawn();
         }
     }
