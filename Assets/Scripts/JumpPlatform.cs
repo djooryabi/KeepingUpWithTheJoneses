@@ -73,7 +73,7 @@ public class JumpPlatform : MonoBehaviour {
         
         if (wobbling == true) {
             var p = transform.position;
-            p.x += Mathf.Sin(Time.time * speed) * amount;
+            p += transform.right * Mathf.Sin(Time.time * speed) * amount;
             transform.position = p;
         }
 

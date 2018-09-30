@@ -4,26 +4,23 @@ using UnityEngine;
 
 public class Arrow : MonoBehaviour {
 
-	public Rigidbody rb;
+	private Rigidbody rb;
 	public float velX = 1;
 
+    void Awake() {
+        rb = GetComponent<Rigidbody>();
+    }
 	// Use this for initialization
 	void Start () {
 		rb = GetComponent<Rigidbody>();
 		rb.velocity = transform.right*velX;
 	}
-	
-	// Update is called once per frame
-	void Update () {
-		
-	}
 
-	void OnCollisionEnter (Collision col){
+	void OnTriggerEnter (Collider col){
 
-		if(col.gameObject.tag == "Player"){
-			Destroy(col.gameObject);
+		if(col.GetComponent<Player>() != null){
+            col.GetComponent<Player>().Respawn();
+            Destroy(gameObject);
 		}
-
-		Destroy(gameObject);
 	}
 }

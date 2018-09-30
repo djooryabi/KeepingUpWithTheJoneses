@@ -57,8 +57,17 @@ public class InputManager : MonoBehaviour {
                 }
                 
                 if (Input.GetButtonUp("Player1Interact") == true && currentToggle != null) {
-                    Interact();
+                   //Interact();
+                    
+                    var dot = Vector3.Dot(transform.forward, (currentToggle.transform.forward));
+                    Debug.Log(dot);
+                    if (dot < -0.7f)
+                    {
+                        Interact();
+                    }
                 }
+                
+                
             }
             else if (player.GetType() == typeof(ChildPlayer))
             {
@@ -78,7 +87,14 @@ public class InputManager : MonoBehaviour {
                 }
                 
                 if (Input.GetButtonUp("Player2Interact") == true && currentToggle != null) {
-                    Interact();
+                    //Interact();
+
+                    var dot = Vector3.Dot(transform.forward, (currentToggle.transform.forward));
+                    Debug.Log(dot);
+                    if (dot < -0.7f)
+                    {
+                        Interact();
+                    }
                 }
             }
 

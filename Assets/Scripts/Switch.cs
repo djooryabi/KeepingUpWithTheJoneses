@@ -20,7 +20,7 @@ public class Switch : MonoBehaviour {
 	}
 
 	void OnTriggerEnter(Collider col){
-		if(col.gameObject.tag == "Player"){
+		if(col.GetComponent<Player>() != null){
 			isSwitched = true;
 			GetComponent<Renderer>().material.SetColor("_Color",colorOn);
 			foreach(GameObject prefab in prefabs){

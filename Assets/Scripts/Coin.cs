@@ -8,7 +8,7 @@ public class Coin : MonoBehaviour {
         if (other.GetComponent<AdultPlayer>() != null) {
             // collect the coin if its the adult player
             FindObjectOfType<ScoreManager>().CollectedCoin();
-            GetComponent<MeshRenderer>().enabled = false;
+            GetComponentInChildren<MeshRenderer>().enabled = false;
             GetComponent<ParticleSystem>().Play();
         } else if (other.GetComponent<ChildPlayer>() != null) {
             // kill the child if he grabs it

@@ -18,14 +18,15 @@ public class Treasure : MonoBehaviour {
 	}
 
 	void OnTriggerEnter (Collider col){
-		if(col.gameObject.tag == "Player"){
+		if(col.GetComponent<Player>() != null){
 			Debug.Log("Treasure Acquired");
 			GetComponent<MeshRenderer>().enabled = false;
+            // drop boulder??
 			Invoke("LoadNextScene",2f);
 		}
 	}
 
 	void LoadNextScene(){
-		SceneManager.LoadScene("Level1");
+		SceneManager.LoadScene(LoadSceneName);
 	}
 }

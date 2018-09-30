@@ -20,7 +20,7 @@ public class SwitchEnd : MonoBehaviour {
 	}
 
 	void OnTriggerEnter(Collider col){
-		if(col.gameObject.tag == "Player"){
+		if(col.GetComponent<Player>() != null){
 			players++;
 			if(players >= 2){
 				isSwitched = true;
@@ -35,7 +35,7 @@ public class SwitchEnd : MonoBehaviour {
 	}
 
 	void OnTriggerExit(Collider col){
-		if(col.gameObject.tag == "Player"){
+		if(col.GetComponent<Player>() != null){
 			players--;
 			if(canDeactivate){
 				if(players < 2){

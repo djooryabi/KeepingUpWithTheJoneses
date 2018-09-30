@@ -4,21 +4,17 @@ using UnityEngine;
 
 public class Spawner : MonoBehaviour {
 
-	public Transform prefab;
+	public GameObject prefab;
 	public float repeateRate=1f;
 
 	// Use this for initialization
 	void Start () {
-		InvokeRepeating("FireProjectile",0f,repeateRate);
-	}
-	
-	// Update is called once per frame
-	void Update () {
-		
+		InvokeRepeating("FireProjectile",Random.Range(0f, 2f),repeateRate);
 	}
 
 	void FireProjectile(){
-		Instantiate(prefab, transform.position,transform.rotation);
+		var go = Instantiate(prefab, transform.position,transform.rotation);
+        Destroy(go, 5f);
         GetComponentInChildren<ParticleSystem>().Play();
 	}
 }
