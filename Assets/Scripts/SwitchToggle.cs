@@ -22,7 +22,12 @@ public class SwitchToggle : MonoBehaviour {
 			toggle = !toggle;
 			foreach(GameObject prefab in prefabs){
 				Debug.Log(prefab.name);
-				prefab.GetComponent<Activate>().Activation();
+				if(toggle){
+					prefab.GetComponent<Activate>().Activation();
+				}
+				else{
+					prefab.GetComponent<Activate>().Deactivation();
+				}
 			}
 		}
 	}

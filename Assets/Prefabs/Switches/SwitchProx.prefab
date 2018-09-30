@@ -23,9 +23,9 @@ GameObject:
   - component: {fileID: 23439019005800280}
   - component: {fileID: 65841869325902198}
   - component: {fileID: 135872802278274898}
-  - component: {fileID: 114757760114475694}
+  - component: {fileID: 114475527150123144}
   m_Layer: 0
-  m_Name: SwitchToggle
+  m_Name: SwitchProx
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -98,7 +98,7 @@ BoxCollider:
   serializedVersion: 2
   m_Size: {x: 1, y: 1, z: 1}
   m_Center: {x: 0, y: 0, z: 0}
---- !u!114 &114757760114475694
+--- !u!114 &114475527150123144
 MonoBehaviour:
   m_ObjectHideFlags: 1
   m_CorrespondingSourceObject: {fileID: 0}
@@ -106,12 +106,13 @@ MonoBehaviour:
   m_GameObject: {fileID: 1509221848423526}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 27cba4fa70a21d643ad0d8b43d69bc68, type: 3}
+  m_Script: {fileID: 11500000, guid: 6d37a70ce4d674700a269b9acc0c6060, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   isSwitched: 0
-  toggle: 0
-  prefabs: []
+  canDeactivate: 1
+  prefabs:
+  - {fileID: 0}
 --- !u!135 &135872802278274898
 SphereCollider:
   m_ObjectHideFlags: 1
