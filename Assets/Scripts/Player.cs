@@ -5,7 +5,6 @@ using UnityEngine;
 public class Player : MonoBehaviour {
 
     public Transform respawnPoint;
-    public PlayerCamera cam;
     private InputManager inputManager;
     private Rigidbody rb;
     private float distanceToGround;
@@ -27,8 +26,9 @@ public class Player : MonoBehaviour {
     }
     
     public bool IsGrounded() {
-        Debug.DrawLine(transform.position, transform.position - Vector3.up * (distanceToGround + 0.5f), Color.green);
-        return Physics.Raycast(transform.position, -Vector3.up, distanceToGround + 0.5f);
+        //Debug.DrawLine(transform.position, transform.position - Vector3.up * (distanceToGround + 1f), Color.green);
+        return Physics.Raycast(transform.position, -Vector3.up, distanceToGround + 0.5f) && anim.GetCurrentAnimatorStateInfo(0).IsName("Jump") == false;
+        //return anim.GetCurrentAnimatorStateInfo(0).IsName("Jump") == false;
     }
     
     void Update () {
@@ -40,56 +40,14 @@ public class Player : MonoBehaviour {
         rb.AddForce(rb.mass * Physics.gravity * gravityModifier, ForceMode.Acceleration);
     }
 
-    //private void OnTriggerEnter(Collider other)
-    //{
-    //    if (other.gameObject.tag == "Tunnel Entrance")  {
-
-    //        Debug.Log("Entered tunnel");
-    //        cam.ZoomIn();
-    //    }
-    //}
-
-    //private void OnCo(Collider other)
-    //{
-    //    if (other.gameObject.tag == "Floor" && anim.GetCurrentAnimatorStateInfo(0).IsName("Jump"))  {
-    //        Debug.Log("Ground hit");
-    //        inputManager.OnGroundHit();
-    //    }
-    //}
-
     private void OnCollisionEnter(Collision collision)
     {
-         if (collision.collider.gameObject.tag == "Floor" && anim.GetCurrentAnimatorStateInfo(0).IsName("Jump"))  {
+        Debug.Log("OnCollisionEnter " + collision.collider.gameObject.name);
+         if (collision.collider.gameObject.tag == "Floor" && inputManager.onGround == false)  {
             Debug.Log("Ground hit");
             inputManager.OnGroundHit();
+
         }
     }
 
-    //private void OnTriggerExit(Collider other)
-    //{
-    //    if (other.gameObject.tag == "Tunnel Entrance")  {
-
-    //        if (inTunnel == true)
-    //        {
-    //            inTunnel = false;
-    //            cam.ZoomOut();
-    //        } else {
-    //            inTunnel = true;
-    //            cam.ZoomIn();
-    //        }
-    //    }
-        
-    //    if (other.gameObject.tag == "Floor" && anim.GetCurrentAnimatorStateInfo(0).IsName("Jump") == true) {
-    //        anim.SetTrigger("StopJump");
-    //    }
-    //}
-
-    //private void OnCollisionEnter(Collision collision)
-    //{
-    //    if (collision.collider.tag == "Floor")  {
-    //        Debug.Log("Grounded");
-    //        rb.velocity = Vector3.zero;
-    //        rb.angularVelocity = Vector3.zero;
-    //    }
-    //}
 }

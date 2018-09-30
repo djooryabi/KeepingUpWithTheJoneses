@@ -9,6 +9,7 @@ public class InputManager : MonoBehaviour {
     public float xErrorThresh, yErrorThresh;
     public float jumpForce;
     public float turnSpeed;
+    public bool onGround;
 
     private Rigidbody rb;
     private Player player;
@@ -23,7 +24,18 @@ public class InputManager : MonoBehaviour {
 	void Start () {
 		
 	}
-	
+
+    private bool walkTriggered;
+    private bool stopWalkTriggered;
+    
+    private enum State {
+        Idle, 
+        Walking,
+        Jumping
+    }
+
+    private State state;
+    
 	// Update is called once per frame
 	void Update () {
         
@@ -37,17 +49,22 @@ public class InputManager : MonoBehaviour {
             //Debug.Log("rotX = " + rotX + " rotY = " + rotY);
             //Debug.Log("IsGrounded = " + player.IsGrounded());
 
-            if (anim.GetCurrentAnimatorStateInfo(0).IsName("Jump") == false && Input.GetButtonUp("Player1Jump") == true && player.IsGrounded() == true) {
+            if (Input.GetButtonUp("Player1Jump") == true && onGround == true) {
                 Debug.Log("Adult player jumping");
-           
+                onGround = false;
+                state = State.Jumping;
+                Jump();
                 anim.SetTrigger("Jump");
             }   
         } else if (player.GetType() == typeof(ChildPlayer)) {
             x = Input.GetAxis("Player2Horizontal");
             y = Input.GetAxis("Player2Vertical");
 
-            if (anim.GetCurrentAnimatorStateInfo(0).IsName("Jump") == false && Input.GetButtonUp("Player2Jump") == true && player.IsGrounded() == true) {
+            if (Input.GetButtonUp("Player2Jump") == true && onGround == true) {
                 Debug.Log("Child player jumping");
+                onGround = false;
+                state = State.Jumping;
+                Jump();
                 anim.SetTrigger("Jump");
             }
         }
@@ -60,12 +77,33 @@ public class InputManager : MonoBehaviour {
             y = 0f;
         }
         
-       
+        if (onGround == true && (Mathf.Abs(y) > 0f) && anim.GetCurrentAnimatorStateInfo(0).IsName("Walking") == false && state != State.Walking) {
+            state = State.Walking;
+            StartWalking();
+        } else if (Mathf.Abs(y) <= 0f && anim.GetCurrentAnimatorStateInfo(0).IsName("Walking") == true && state == State.Walking) {
+            state = State.Idle;
+            StopWalking();
+        }
+
 	}
     
-    public void Jump() {
-        rb.AddForce(Vector3.up * jumpForce, ForceMode.Impulse);
+    public void StartWalking() {
     
+            Debug.Log("Start walk");
+
+            anim.SetTrigger("Start Walk");
+        
+    }
+    
+    public void StopWalking() {
+            Debug.Log("Stop walk");
+            anim.SetTrigger("Stop Walk");
+        
+    }
+    
+    public void Jump() {
+
+        rb.AddForce(Vector3.up * jumpForce, ForceMode.Impulse);
     }
     
     public void PauseJumpAnimation() {
@@ -73,13 +111,18 @@ public class InputManager : MonoBehaviour {
     }
     
     public void OnGroundHit() {
-        anim.speed = 1f;
+        //anim.speed = 1f;
+        onGround = true;
+        state = State.Idle;
     }
 
     private void FixedUpdate()
     {
-        rb.MovePosition(rb.position + (new Vector3(x, 0f, 0f)) * Time.deltaTime * movementSpeed);
-        rb.MovePosition(rb.position + (new Vector3(0f, 0f, y)) * Time.deltaTime * movementSpeed);
+
+        rb.MovePosition(rb.position + transform.forward * y * Time.deltaTime * movementSpeed);
+        rb.MovePosition(rb.position + transform.right * x * Time.deltaTime * movementSpeed);
+        
+        
 
         var turnRatio = rotX / 1f * turnSpeed;
         
