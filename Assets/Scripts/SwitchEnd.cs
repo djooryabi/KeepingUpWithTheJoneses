@@ -25,6 +25,7 @@ public class SwitchEnd : MonoBehaviour {
 			if(players >= 2){
 				isSwitched = true;
 				canDeactivate = false;
+				GetComponent<Renderer>().material.SetColor("_Color",Color.cyan);
 				foreach(GameObject prefab in prefabs){
 					Debug.Log(prefab.name);
 					prefab.GetComponent<Activate>().Activation();

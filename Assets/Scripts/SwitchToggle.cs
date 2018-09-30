@@ -20,6 +20,10 @@ public class SwitchToggle : MonoBehaviour {
 	void OnTriggerEnter(Collider col){
 		if(col.gameObject.tag == "Player"){
 			toggle = !toggle;
+			if(toggle){
+				GetComponent<Renderer>().material.SetColor("_Color",Color.cyan);
+			}
+			else{GetComponent<Renderer>().material.SetColor("_Color",Color.white);}
 			foreach(GameObject prefab in prefabs){
 				Debug.Log(prefab.name);
 				if(toggle){

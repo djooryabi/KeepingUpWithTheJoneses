@@ -20,6 +20,7 @@ public class Switch : MonoBehaviour {
 	void OnTriggerEnter(Collider col){
 		if(col.gameObject.tag == "Player"){
 			isSwitched = true;
+			GetComponent<Renderer>().material.SetColor("_Color",Color.cyan);
 			foreach(GameObject prefab in prefabs){
 				Debug.Log(prefab.name);
 				prefab.GetComponent<Activate>().Activation();
@@ -30,6 +31,7 @@ public class Switch : MonoBehaviour {
 	void OnTriggerExit(Collider col){
 		if(canDeactivate){
 			isSwitched = false;
+			GetComponent<Renderer>().material.SetColor("_Color",Color.white);
 			foreach(GameObject prefab in prefabs){
 				prefab.GetComponent<Activate>().Deactivation();
 			}
