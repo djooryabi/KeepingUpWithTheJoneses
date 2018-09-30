@@ -21,7 +21,7 @@ public class FireTile : MonoBehaviour {
                 isPlaying = false;
                 GetComponent<Collider>().enabled = false;
                 offTimer = maxOffTime;
-                Debug.Log("Fire stopping");
+                //Debug.Log("Fire stopping");
             }
             else if (isPlaying == false && offTimer <= 0f)
             {
@@ -29,7 +29,7 @@ public class FireTile : MonoBehaviour {
                 isPlaying = true;
                 GetComponent<Collider>().enabled = true;
                 onTimer = Random.Range(1f, maxOnTime);
-                Debug.Log("Fire starting");
+                //Debug.Log("Fire starting");
             }
 
             if (isPlaying == true) {
@@ -52,7 +52,7 @@ public class FireTile : MonoBehaviour {
     public void ActivateFire() {
         if (ps.isPlaying == false)
         {
-            Debug.Log("Activating fire");
+            //Debug.Log("Activating fire");
             ps.Play();
         }
     }
@@ -60,7 +60,7 @@ public class FireTile : MonoBehaviour {
     public void DeactivateFire() {
         if (ps.isPlaying == true)
         {
-            Debug.Log("Deactivating fire");
+            //Debug.Log("Deactivating fire");
             ps.Stop();
         }
     }

@@ -14,6 +14,7 @@ public class InputManager : MonoBehaviour {
     private Rigidbody rb;
     private Player player;
     private Animator anim;
+    public SwitchToggle currentToggle;
 
     void Awake() {
         rb = GetComponent<Rigidbody>();
@@ -48,11 +49,15 @@ public class InputManager : MonoBehaviour {
 
                 if (Input.GetButtonUp("Player1Jump") == true && onGround == true)
                 {
-                    Debug.Log("Adult player jumping");
+                    //Debug.Log("Adult player jumping");
                     onGround = false;
                     state = State.Jumping;
                     Jump();
                     anim.SetTrigger("Jump");
+                }
+                
+                if (Input.GetButtonUp("Player1Interact") == true && currentToggle != null) {
+                    Interact();
                 }
             }
             else if (player.GetType() == typeof(ChildPlayer))
@@ -65,11 +70,15 @@ public class InputManager : MonoBehaviour {
 
                 if (Input.GetButtonUp("Player2Jump") == true && onGround == true)
                 {
-                    Debug.Log("Child player jumping");
+                    //Debug.Log("Child player jumping");
                     onGround = false;
                     state = State.Jumping;
                     Jump();
                     anim.SetTrigger("Jump");
+                }
+                
+                if (Input.GetButtonUp("Player2Interact") == true && currentToggle != null) {
+                    Interact();
                 }
             }
 
@@ -98,16 +107,21 @@ public class InputManager : MonoBehaviour {
 	}
     
     public void StartWalking() {
-    
-            Debug.Log("Start walk");
 
-            anim.SetTrigger("Start Walk");
+       //Debug.Log("Start walk");
+
+        anim.SetTrigger("Start Walk");
         
     }
     
+    public void Interact() {
+        anim.SetTrigger("Interact");
+        currentToggle.Toggle();
+    }
+    
     public void StopWalking() {
-            Debug.Log("Stop walk");
-            anim.SetTrigger("Stop Walk");
+        //Debug.Log("Stop walk");
+        anim.SetTrigger("Stop Walk");
         
     }
     

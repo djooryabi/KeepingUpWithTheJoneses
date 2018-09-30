@@ -19,5 +19,6 @@ public class Spawner : MonoBehaviour {
 
 	void FireProjectile(){
 		Instantiate(prefab, transform.position,transform.rotation);
+        GetComponentInChildren<ParticleSystem>().Play();
 	}
 }

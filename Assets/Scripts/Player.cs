@@ -12,6 +12,7 @@ public class Player : MonoBehaviour {
     private Animator anim;
     public float gravityModifier;
     public bool respawning;
+    public bool testInteract;
     
     void Awake() {
         inputManager = GetComponent<InputManager>();
@@ -24,7 +25,6 @@ public class Player : MonoBehaviour {
         respawning = true;
         rb.velocity = Vector3.zero;
         rb.angularVelocity = Vector3.zero;
-        //rb.useGravity = false;
         inputManager.state = InputManager.State.Idle;
         anim.SetTrigger("Die");
     }
@@ -39,17 +39,12 @@ public class Player : MonoBehaviour {
         }
 
         respawning = false;
-        //rb.useGravity = true;
     }
     
     public bool IsGrounded() {
         //Debug.DrawLine(transform.position, transform.position - Vector3.up * (distanceToGround + 1f), Color.green);
         return Physics.Raycast(transform.position, -Vector3.up, distanceToGround + 0.5f) && anim.GetCurrentAnimatorStateInfo(0).IsName("Jump") == false;
         //return anim.GetCurrentAnimatorStateInfo(0).IsName("Jump") == false;
-    }
-    
-    void Update () {
-        //Debug.Log(IsGrounded());
     }
 
     private void FixedUpdate()
@@ -59,9 +54,9 @@ public class Player : MonoBehaviour {
 
     private void OnCollisionEnter(Collision collision)
     {
-        Debug.Log("OnCollisionEnter " + collision.collider.gameObject.name);
+       //Debug.Log("OnCollisionEnter " + collision.collider.gameObject.name);
          if (collision.collider.gameObject.tag == "Floor" && inputManager.onGround == false)  {
-            Debug.Log("Ground hit");
+           //Debug.Log("Ground hit");
             inputManager.OnGroundHit();
 
         }
@@ -73,13 +68,5 @@ public class Player : MonoBehaviour {
             Respawn();
         }
     }
-
-    //private void OnParticleCollision(GameObject other)
-    //{
-    //    Debug.Log("Particle Collision");
-    //    if (other.GetComponentInParent<FireTile>() != null) {
-    //        Respawn();
-    //    }
-    //}
 
 }
