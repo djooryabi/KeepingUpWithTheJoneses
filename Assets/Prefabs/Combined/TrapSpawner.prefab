@@ -11,20 +11,20 @@ Prefab:
   m_SourcePrefab: {fileID: 0}
   m_RootGameObject: {fileID: 1984444331672256}
   m_IsPrefabAsset: 1
---- !u!1 &1504634742627882
+--- !u!1 &1606189513863410
 GameObject:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
   serializedVersion: 6
   m_Component:
-  - component: {fileID: 4128840409824848}
-  - component: {fileID: 33751069293656234}
-  - component: {fileID: 23305192288481016}
-  - component: {fileID: 65752518625212990}
-  - component: {fileID: 114398023952822290}
+  - component: {fileID: 4115930259756836}
+  - component: {fileID: 33368768832347414}
+  - component: {fileID: 23040775873663298}
+  - component: {fileID: 65022759641284660}
+  - component: {fileID: 114918802468978770}
   m_Layer: 0
-  m_Name: SwitchTrip (2)
+  m_Name: TrapSpawner (1)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -41,7 +41,7 @@ GameObject:
   - component: {fileID: 33349053529617126}
   - component: {fileID: 23544323069321222}
   - component: {fileID: 65244646565872310}
-  - component: {fileID: 114514761482422496}
+  - component: {fileID: 114635597014378226}
   m_Layer: 0
   m_Name: TrapSpawner
   m_TagString: Untagged
@@ -49,15 +49,15 @@ GameObject:
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
---- !u!4 &4128840409824848
+--- !u!4 &4115930259756836
 Transform:
   m_ObjectHideFlags: 1
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
-  m_GameObject: {fileID: 1504634742627882}
-  m_LocalRotation: {x: -0, y: -0, z: 0.7071068, w: 0.7071068}
-  m_LocalPosition: {x: 3.7659707, y: 0.00024312735, z: -0.6909356}
-  m_LocalScale: {x: 1, y: 1.5530009, z: 1.5508}
+  m_GameObject: {fileID: 1606189513863410}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: -5.13, y: 0, z: 0}
+  m_LocalScale: {x: 0.64391434, y: 1, z: 0.6448285}
   m_Children: []
   m_Father: {fileID: 4671504127816250}
   m_RootOrder: 0
@@ -69,19 +69,19 @@ Transform:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1984444331672256}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -3.8259706, y: -0.31024313, z: -4.2800255}
-  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_LocalPosition: {x: 0.04, y: 0.43, z: -4.2800255}
+  m_LocalScale: {x: 1, y: 1.5530019, z: 1.5508}
   m_Children:
-  - {fileID: 4128840409824848}
+  - {fileID: 4115930259756836}
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!23 &23305192288481016
+--- !u!23 &23040775873663298
 MeshRenderer:
   m_ObjectHideFlags: 1
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
-  m_GameObject: {fileID: 1504634742627882}
+  m_GameObject: {fileID: 1606189513863410}
   m_Enabled: 1
   m_CastShadows: 1
   m_ReceiveShadows: 1
@@ -91,7 +91,7 @@ MeshRenderer:
   m_ReflectionProbeUsage: 1
   m_RenderingLayerMask: 4294967295
   m_Materials:
-  - {fileID: 10303, guid: 0000000000000000f000000000000000, type: 0}
+  - {fileID: 2100000, guid: 84f4f75e38e52f0468e021f5422ae03f, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -126,7 +126,7 @@ MeshRenderer:
   m_ReflectionProbeUsage: 1
   m_RenderingLayerMask: 4294967295
   m_Materials:
-  - {fileID: 2100000, guid: 84f4f75e38e52f0468e021f5422ae03f, type: 2}
+  - {fileID: 10303, guid: 0000000000000000f000000000000000, type: 0}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -153,13 +153,25 @@ MeshFilter:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1984444331672256}
   m_Mesh: {fileID: 10202, guid: 0000000000000000e000000000000000, type: 0}
---- !u!33 &33751069293656234
+--- !u!33 &33368768832347414
 MeshFilter:
   m_ObjectHideFlags: 1
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
-  m_GameObject: {fileID: 1504634742627882}
+  m_GameObject: {fileID: 1606189513863410}
   m_Mesh: {fileID: 10202, guid: 0000000000000000e000000000000000, type: 0}
+--- !u!65 &65022759641284660
+BoxCollider:
+  m_ObjectHideFlags: 1
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1606189513863410}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 0
+  serializedVersion: 2
+  m_Size: {x: 1, y: 1, z: 1}
+  m_Center: {x: 0, y: 0, z: 0}
 --- !u!65 &65244646565872310
 BoxCollider:
   m_ObjectHideFlags: 1
@@ -167,29 +179,17 @@ BoxCollider:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1984444331672256}
   m_Material: {fileID: 0}
-  m_IsTrigger: 0
-  m_Enabled: 0
-  serializedVersion: 2
-  m_Size: {x: 1, y: 1, z: 1}
-  m_Center: {x: 0, y: 0, z: 0}
---- !u!65 &65752518625212990
-BoxCollider:
-  m_ObjectHideFlags: 1
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 100100000}
-  m_GameObject: {fileID: 1504634742627882}
-  m_Material: {fileID: 0}
   m_IsTrigger: 1
   m_Enabled: 1
   serializedVersion: 2
   m_Size: {x: 1, y: 1, z: 1}
   m_Center: {x: 0, y: 0, z: 0}
---- !u!114 &114398023952822290
+--- !u!114 &114635597014378226
 MonoBehaviour:
   m_ObjectHideFlags: 1
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
-  m_GameObject: {fileID: 1504634742627882}
+  m_GameObject: {fileID: 1984444331672256}
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 6d37a70ce4d674700a269b9acc0c6060, type: 3}
@@ -198,13 +198,13 @@ MonoBehaviour:
   isSwitched: 0
   canDeactivate: 0
   prefabs:
-  - {fileID: 1984444331672256}
---- !u!114 &114514761482422496
+  - {fileID: 1606189513863410}
+--- !u!114 &114918802468978770
 MonoBehaviour:
   m_ObjectHideFlags: 1
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
-  m_GameObject: {fileID: 1984444331672256}
+  m_GameObject: {fileID: 1606189513863410}
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 1649d188f6c736046b5ef7179acf7bf9, type: 3}
@@ -215,3 +215,4 @@ MonoBehaviour:
   Deactivating: 0
   prefab: {fileID: 1104332853015110, guid: ea6ae2d0b191aa14791a39ae93c8a238, type: 2}
   Repeats: 0
+  repeateRate: 1
