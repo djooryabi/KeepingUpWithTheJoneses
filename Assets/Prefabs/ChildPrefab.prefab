@@ -115,7 +115,6 @@ GameObject:
   m_Component:
   - component: {fileID: 4202185989570508}
   - component: {fileID: 20780664583964736}
-  - component: {fileID: 81040470801793448}
   m_Layer: 10
   m_Name: Child Camera
   m_TagString: MainCamera
@@ -885,13 +884,13 @@ Transform:
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1135554064871860}
-  m_LocalRotation: {x: -0.21432558, y: -0.0029246658, z: 0.00064235204, w: -0.97675776}
-  m_LocalPosition: {x: -0.10976839, y: 4.862015, z: -5.879526}
+  m_LocalRotation: {x: -0.11166467, y: -0.002975523, z: 0.0003349669, w: -0.99374145}
+  m_LocalPosition: {x: -0.1097669, y: 4.8620224, z: -5.879527}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 4753673408536614}
   m_RootOrder: 1
-  m_LocalEulerAnglesHint: {x: 26.986002, y: 0, z: 0}
+  m_LocalEulerAnglesHint: {x: 12.823001, y: 0.34300002, z: 0}
 --- !u!4 &4215670565656868
 Transform:
   m_ObjectHideFlags: 1
@@ -1161,15 +1160,15 @@ Transform:
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1022838337888178}
-  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 1.68, y: 2.565, z: 1.9589996}
+  m_LocalRotation: {x: -0, y: -0.7194496, z: -0, w: 0.6945447}
+  m_LocalPosition: {x: 14.340535, y: 22.71, z: 42.62949}
   m_LocalScale: {x: 0.1, y: 0.1, z: 0.1}
   m_Children:
   - {fileID: 4894852844624630}
   - {fileID: 4202185989570508}
   m_Father: {fileID: 0}
   m_RootOrder: 0
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+  m_LocalEulerAnglesHint: {x: 0, y: -92.018005, z: 0}
 --- !u!4 &4766642123717082
 Transform:
   m_ObjectHideFlags: 1
@@ -1464,13 +1463,6 @@ BoxCollider:
   serializedVersion: 2
   m_Size: {x: 1.2, y: 3.16, z: 1.2}
   m_Center: {x: 0, y: 1.64, z: 0}
---- !u!81 &81040470801793448
-AudioListener:
-  m_ObjectHideFlags: 1
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 100100000}
-  m_GameObject: {fileID: 1135554064871860}
-  m_Enabled: 1
 --- !u!95 &95609242432165278
 Animator:
   serializedVersion: 3
@@ -1520,7 +1512,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   respawnPoint: {fileID: 0}
   inTunnel: 0
-  gravityModifier: 6
+  gravityModifier: 1
   respawning: 0
   testInteract: 0
 --- !u!114 &114471650220818112
@@ -1537,13 +1529,13 @@ MonoBehaviour:
   x: 0
   y: 0
   rotX: 0
-  rotY: 0
-  movementSpeed: 1
+  rotY: -0
+  movementSpeed: 2
   xErrorThresh: 0.2
   yErrorThresh: 0.2
-  jumpForce: 3
+  jumpForce: 5
   turnSpeed: 150
-  onGround: 0
+  onGround: 1
   currentToggle: {fileID: 0}
   state: 0
 --- !u!137 &137915609623209192

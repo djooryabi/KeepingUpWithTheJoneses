@@ -140,6 +140,6 @@ MonoBehaviour:
   speed: 25
   amount: 0.01
   dropSpeed: 50
-  wiggleTime: 2
+  wiggleTime: 1
   testDrop: 0
   respawnTime: 5
